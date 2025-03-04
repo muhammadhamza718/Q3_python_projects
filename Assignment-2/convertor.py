@@ -73,11 +73,9 @@ h1 {
 }
 </style>
 """, unsafe_allow_html=True)
-# Sidebar
 st.sidebar.title("Conversion Type")
 st.sidebar.markdown("Choose conversion type and units below")
 
-# Conversion type selector in sidebar
 conversion_type = st.sidebar.selectbox(
     "Select Conversion Type",
     ["Length", "Weight", "Temperature"],
@@ -85,12 +83,10 @@ conversion_type = st.sidebar.selectbox(
     format_func=lambda x: f"📏 {x}" if x == "Length" else f"⚖️ {x}" if x == "Weight" else f"🌡️ {x}"
 )
 
-# Main content
 st.title("Unit Converter")
 st.markdown('<p class="subtitle">Convert between different units with real-time updates</p>',
             unsafe_allow_html=True)
 
-# Units Dictionary
 LENGTH_UNITS = {
     "Kilometer": 1000, "Meter": 1, "Centimeter": 0.01, "Millimeter": 0.001,
     "Micrometer": 0.000001, "Nanometer": 0.000000001, "Mile": 1609.344,
@@ -102,18 +98,13 @@ WEIGHT_UNITS = {
 }
 TEMPERATURE_UNITS = ["Celsius", "Fahrenheit", "Kelvin"]
 
-# Conversion Functions
-
-
 def convert_length(value, from_unit, to_unit):
     meters = value * LENGTH_UNITS[from_unit]
     return meters / LENGTH_UNITS[to_unit]
 
-
 def convert_weight(value, from_unit, to_unit):
     grams = value * WEIGHT_UNITS[from_unit]
     return grams / WEIGHT_UNITS[to_unit]
-
 
 def convert_temperature(value, from_unit, to_unit):
     if from_unit == "Celsius":
@@ -130,8 +121,6 @@ def convert_temperature(value, from_unit, to_unit):
     else:
         return kelvin
 
-# Formatting Function
-
 
 def format_number(number):
     if abs(number) < 0.000001:
@@ -145,8 +134,6 @@ def format_number(number):
     else:
         return f"{number:,.2f}"
 
-
-# 🛠 **Updated Layout**
 input_value = st.number_input(
     "Enter value", value=1.0, format="%f", key="input_value"
 )
@@ -163,7 +150,6 @@ with col1:
 with col2:
     to_unit = st.selectbox("To", options=list(units), key="to_unit")
 
-# Conversion logic
 if input_value is not None:
     result = None
     if conversion_type == "Length":
@@ -184,7 +170,6 @@ if input_value is not None:
             unsafe_allow_html=True
         )
 
-# Swap Button
 if st.button("🔄 Swap Units"):
     temp_from = st.session_state.from_unit
     temp_to = st.session_state.to_unit
@@ -192,7 +177,6 @@ if st.button("🔄 Swap Units"):
     st.session_state.to_unit = temp_from
     st.experimental_rerun()
 
-# Footer
 st.markdown("""
 <div class="footer">
     Built with Streamlit • Inspired by Google's Unit Converter
