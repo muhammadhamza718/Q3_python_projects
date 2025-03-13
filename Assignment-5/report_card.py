@@ -35,7 +35,7 @@ with st.form(form_key):  # Mene ek form banaya hai jiska unique identifier Form_
     roll_number = st.text_input("Roll Number") # student apna roll number input me likhga to wo roll_number ke variable me save hojaye
     # Ye dono variables baad me report card generate karne ke liye use honge
 
-    st.subheader("Enter Marks (out of 100)") # st.subheader ek title display kr wayega
+    st.subheader("Enter Marks (0 out of 100)") # st.subheader ek title display kr wayega
     # st.number_input ye sirf numbers accept karega text ya negative values accept nahi karega or phir usko ussi subjects ke variable me store kr dega isme min_value 0 or max_value 100 hogi matlab user only 1 to 100 takke number input me likh sakhta hai 
 
     math = st.number_input("Math", min_value=0, max_value=100, step=1)
