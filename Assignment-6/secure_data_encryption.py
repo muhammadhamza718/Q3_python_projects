@@ -1,7 +1,6 @@
 import streamlit as st
 import hashlib
 from cryptography.fernet import Fernet
-import base64
 
 # Initialize session state variables if they don't exist
 if 'stored_data' not in st.session_state:
