@@ -90,7 +90,7 @@ elif choice == "Retrieve Data":
     # Check if there are too many failed attempts
     if st.session_state.failed_attempts >= 3:
         st.warning("🔒 Too many failed attempts! Please reauthorize.")
-        st.rerun()  # Redirect to the Login page
+        st.experimental_rerun()  # Redirect to the Login page
         
     data_id = st.text_input("Enter Data ID:")
     passkey = st.text_input("Enter Passkey:", type="password")
