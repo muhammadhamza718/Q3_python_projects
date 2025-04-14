@@ -1,14 +1,19 @@
 [server]
 headless = true
-address = "0.0.0.0"
-port = 5000
+port = 8501
+enableCORS = false
+enableXsrfProtection = false
 
 [theme]
-# Base theme colors with red accent
-primaryColor = "#dc2626"  # Bright red
-backgroundColor = "#ffffff"
-secondaryBackgroundColor = "#fef2f2"  # Very light red
-textColor = "#1f2937"  # Dark gray for better readability
+primaryColor = "#d33682"
+backgroundColor = "#1e1e1e"
+secondaryBackgroundColor = "#282c34"
+textColor = "#ffffff"
+font = "sans serif"
+
+[client]
+showErrorDetails = true
+toolbarMode = "minimal"
 
 [browser]
 gatherUsageStats = false
